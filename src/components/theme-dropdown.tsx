@@ -6,11 +6,11 @@ import {
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
-} from "@components/ui/dropdown-menu"
-import {Button} from "@components/ui/button.tsx";
+} from "@/components/ui/dropdown-menu"
+import {Button} from "@/components/ui/button.tsx";
 import {useState} from "react";
-import {IconLightUp} from "@components/icon/light-icon.tsx";
-import {MoonIcon} from "@components/icon/moon-icon.tsx";
+import {IconLightUp} from "@/components/icon/light-icon.tsx";
+import {MoonIcon} from "@/components/icon/moon-icon.tsx";
 
 type Theme = "light" | "dark" | "device";
 
@@ -38,7 +38,7 @@ const ThemeDropdown = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost">
+        <Button variant="ghost" size="icon">
           <IconLightUp className="w-7 h-7 dark:hidden transition-all"/>
           <MoonIcon className="w-7 h-7 hidden dark:block transition-all"/>
         </Button>
