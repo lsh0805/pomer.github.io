@@ -5,6 +5,9 @@ export default {
     content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
     theme: {
         extend: {
+            fontFamily: {
+                sans: ["Pretendard"]
+            },
             colors: {
                 border: "hsl(var(--border))",
                 input: "hsl(var(--input))",
@@ -49,7 +52,4 @@ export default {
     },
     plugins: [tailwindcssAnimate],
     darkMode: ['class'],
-    fontFamily: {
-        sans: "Pretendard"
-    }
 }
