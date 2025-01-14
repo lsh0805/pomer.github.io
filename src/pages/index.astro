@@ -1,6 +1,10 @@
 ---
-import MainLayout from "../layouts/main-layout.astro";
+import MainLayout from "@/layouts/main-layout.astro";
+import PostCardsContainer from "../components/post-cards-container.astro";
+import {getCollection} from "astro:content";
+const posts = await getCollection('posts');
 ---
 
 <MainLayout>
+  <PostCardsContainer posts={posts} />
 </MainLayout>
