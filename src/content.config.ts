@@ -1,16 +1,25 @@
 import {defineCollection, reference, z} from 'astro:content';
-import {glob} from "astro/loaders";
+import {file} from "astro/loaders";
 
 const categories = defineCollection({
+  loader: file("src/content/categories/categories.json"),
   schema: z.object({
-    name: z.string(),
+    name: z.object({
+      ko: z.string(),
+      ja: z.string(),
+      en: z.string(),
+    }),
     description: z.string().optional(),
   }),
 });
 
 const tags = defineCollection({
   schema: z.object({
-    name: z.string(),
+    name: z.object({
+      ko: z.string(),
+      ja: z.string(),
+      en: z.string(),
+    }),
   }),
 });
 
@@ -25,4 +34,4 @@ const posts = defineCollection({
   })
 });
 
-export const collections = { posts, categories, tags };
+export const collections = {posts, categories, tags};

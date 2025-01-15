@@ -1,0 +1,25 @@
+---
+import {getCollection} from 'astro:content';
+import MainLayout from "@/layouts/main-layout.astro"
+import PostCardsContainer from '@/components/post-cards-container.astro';
+import {languages} from "@/types/language";
+
+export async function getStaticPaths() {
+  const categories = await getCollection('categories');
+
+  const posts = await getCollection('posts', (post) => post.data.category && post.id.startsWith("en"));
+
+  return Object.entries(languages).flatMap(([lang, _]) =>
+    categories.map(category => {
+      const contained_posts = posts.filter((post) => post.data.category!.id == category.id);
+      return {params: {lang, category_id: category.id || undefined}, props: {posts: contained_posts}};
+    })
+  );
+}
+
+const {lang, category_id} = Astro.params;
+const {posts} = Astro.props;
+---
+<MainLayout>
+  <PostCardsContainer posts={posts}/>
+</MainLayout>

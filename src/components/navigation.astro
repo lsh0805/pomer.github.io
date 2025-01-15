@@ -1,6 +1,8 @@
 ---
 import ThemeDropdown from "./theme-dropdown";
 import LanguageDropDown from "./language-dropdown";
+
+const {language} = Astro.props;
 ---
 <nav class="sticky top-0 z-50 w-full h-16 bg-background">
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -8,7 +10,7 @@ import LanguageDropDown from "./language-dropdown";
       <span class="self-center text-2xl font-semibold whitespace-nowrap">Blog</span>
     </a>
     <div>
-      <LanguageDropDown client:load/>
+      <LanguageDropDown client:load language={language}/>
       <ThemeDropdown client:load/>
     </div>
   </div>

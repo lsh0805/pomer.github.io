@@ -2,9 +2,10 @@
 import MainLayout from "@/layouts/main-layout.astro";
 import PostCardsContainer from "../components/post-cards-container.astro";
 import {getCollection} from "astro:content";
-const posts = await getCollection('posts');
+
+const posts = await getCollection('posts', (post) => post.id.startsWith("ko"));
 ---
 
 <MainLayout>
-  <PostCardsContainer posts={posts} />
+  <PostCardsContainer posts={posts}/>
 </MainLayout>

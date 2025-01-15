@@ -1,11 +1,15 @@
 ---
-import BaseHead from "../components/base-head.astro";
-import Navigation from "../components/navigation.astro";
+import BaseHead from "@/components/base-head.astro";
+import Navigation from "@/components/navigation.astro";
+
+import {getLangFromUrl} from '@/i18n/utils';
+
+const language = getLangFromUrl(Astro.url);
 ---
 <html>
-  <BaseHead/>
-  <body>
-    <Navigation/>
-    <slot/>
-  </body>
+<BaseHead/>
+<body>
+<Navigation language={language}/>
+<slot/>
+</body>
 </html>

@@ -1,9 +1,9 @@
 ---
 import PostCard from '../components/post-card.astro';
-const { posts } = Astro.props;
+const {posts} = Astro.props;
 ---
 <section class="grid grid-cols-2 max-md:grid-cols-1 gap-8">
   {posts.map((post) => (
-      <PostCard post={post} />
+          <PostCard post={post} key={post.id}/>
   ))}
 </section>

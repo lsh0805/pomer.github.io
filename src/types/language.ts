@@ -1,13 +1,7 @@
 export const languages = {
-    ko: {
-        name: "한국어",
-    },
-    en: {
-        name: "English",
-    },
-    ja: {
-        name: "日本語",
-    },
-} as const;
+  ko: "한국어",
+  en: "English",
+  ja: "日本語",
+}
 
 export type Language = keyof typeof languages;
